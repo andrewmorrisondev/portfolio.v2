@@ -18,7 +18,7 @@ module.exports = {
   // Base config
   extends: [
     "eslint:recommended",
-    "plugin:prettier/recommended"  // Prettier integration
+    "plugin:prettier/recommended", // Prettier integration
   ],
 
   overrides: [
@@ -93,7 +93,10 @@ module.exports = {
         "plugin:import/typescript",
       ],
       rules: {
-        "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_", varsIgnorePattern: "^_" }],
+        "@typescript-eslint/no-unused-vars": [
+          "error",
+          { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
+        ],
         "@typescript-eslint/explicit-function-return-type": [
           "error",
           {

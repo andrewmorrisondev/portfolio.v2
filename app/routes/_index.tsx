@@ -1,27 +1,49 @@
 import type { MetaFunction } from "@remix-run/node";
 
-export const meta: MetaFunction = () => {
+export const meta: MetaFunction = (): ReturnType<MetaFunction> => {
   return [
     { title: "Andrew Morrison | Software Engineer" },
-    { name: "description", content: "Explore Andrew Morrison's portfolio featuring web development, software engineering, music career, chess matches, code examples, and a media gallery." },
-    { name: "keywords", content: "Andrew Morrison, Software Engineer, Web Developer, Music, Chess, Code, Gallery, Freelance, Developer Portfolio" },
-    { property: "og:title", content: "Andrew Morrison | Software Engineer & Web Developer" },
-    { property: "og:description", content: "Discover my projects, music, and interactive code examples. View my chess matches, and browse the media gallery." },
-    // { property: "og:image", content: "/path-to-your-image.jpg" }, // Replace with your actual image path
+    {
+      name: "description",
+      content:
+        "Explore Andrew Morrison&apos;s portfolio featuring web development, software engineering, music career, chess matches, code examples, and a media gallery.",
+    },
+    {
+      name: "keywords",
+      content:
+        "Andrew Morrison, Software Engineer, Web Developer, Music, Chess, Code, Gallery, Freelance, Developer Portfolio",
+    },
+    {
+      property: "og:title",
+      content: "Andrew Morrison | Software Engineer & Web Developer",
+    },
+    {
+      property: "og:description",
+      content:
+        "Discover my projects, music, and interactive code examples. View my chess matches, and browse the media gallery.",
+    },
     { property: "og:url", content: "https://andrewmorrison.dev" },
     { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: "Andrew Morrison | Software Engineer & Web Developer" },
-    { name: "twitter:description", content: "Check out my projects, music, and more on my portfolio website." },
-    // { name: "twitter:image", content: "/path-to-your-image.jpg" }, // Replace with your actual image path
+    {
+      name: "twitter:title",
+      content: "Andrew Morrison | Software Engineer & Web Developer",
+    },
+    {
+      name: "twitter:description",
+      content:
+        "Check out my projects, music, and more on my portfolio website.",
+    },
   ];
 };
 
-export default function Index() {
+export default function Index(): JSX.Element {
   return (
     <div className="font-sans p-4">
-      <h1 className="text-3xl">Andrew Morrison's Portfolio</h1>
+      <h1 className="text-3xl">Andrew Morrison&apos;s Portfolio</h1>
       <p className="mt-4">
-        Welcome to my personal website! I'm a software engineer, freelance web developer, and musician. Explore my projects, interactive code examples, music career, chess matches, and a media gallery.
+        Welcome to my personal website! I&apos;m a software engineer, freelance
+        web developer, and musician. Explore my projects, interactive code
+        examples, music career, chess matches, and a media gallery.
       </p>
       <ul className="list-disc mt-4 pl-6 space-y-2">
         <li>
