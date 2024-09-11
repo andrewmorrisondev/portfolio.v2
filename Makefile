@@ -22,10 +22,3 @@ clean:
 	@rm -rf build
 	@rm -rf public/build
 	@echo "Cleaned up build artifacts."
-
-# Deploy: Run linting, build everything, and deploy to Vercel
-deploy:
-	@$(NPM) run lint -- --fix
-	@$(REMIX) build
-	@$(TAILWIND) -i ./app/styles/input.css -o ./public/build/tailwind.css --minify
-	@vercel --prod
