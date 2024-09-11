@@ -16,69 +16,44 @@ This is my personal portfolio website, built using Remix, TypeScript, Vercel, an
 To start the development server:
 
 ```bash
-npm run dev
+make dev
 ```
 
-This command will spin up the local development environment using Remix, including Tailwind CSS in development mode.
+This command installs dependencies and starts the development environment using Remix, including Tailwind CSS in development mode.
 
 ## Deployment
 
 This project is hosted on Vercel. For production deployment:
 
-1. Build your app for production:
+1. Build and deploy your app for production:
    ```bash
-   npm run build
+   make deploy
    ```
 
-2. Then deploy to Vercel:
-   ```bash
-   vercel --prod
-   ```
-
-The Remix app is production-ready and can be deployed using the Vercel CLI. Make sure to deploy the output of the build.
+This command ensures that linting passes, builds the project, and deploys it to Vercel using the Vercel CLI.
 
 ## Build Commands
 
-Here are some important commands to manage this project:
+Here are the key commands to manage this project:
 
-- **Install dependencies**:
+- **Develop** (install dependencies and start the dev server):
   ```bash
-  npm install
+  make dev
   ```
 
-- **Build the project**:
+- **Build the project** (install dependencies, run linting, and build):
   ```bash
-  npm run build
-  ```
-
-- **Start the project in production**:
-  ```bash
-  npm start
-  ```
-
-- **Lint the code**:
-  ```bash
-  npm run lint
-  ```
-
-- **Run tests**:
-  ```bash
-  npm run test
-  ```
-
-- **Clean build artifacts**:
-  ```bash
-  make clean
-  ```
-
-- **Full rebuild** (clean, install, build):
-  ```bash
-  make rebuild
+  make build
   ```
 
 - **Deploy to Vercel**:
   ```bash
   make deploy
+  ```
+
+- **Clean build artifacts**:
+  ```bash
+  make clean
   ```
 
 ## Styling
@@ -88,7 +63,7 @@ This project comes with [Tailwind CSS](https://tailwindcss.com/) pre-configured 
 To build Tailwind for production, run:
 
 ```bash
-make tailwind-build
+make build
 ```
 
 ## Side Hustles
@@ -103,4 +78,3 @@ This portfolio is more than just a showcase of my development work. Here’s wha
 ## License
 
 This project is open-source and available under the MIT License. Feel free to use or contribute!
-
