@@ -1,4 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
+// import UnderConstruction from "components/UnderConstruction/UnderConstruction";
 
 export const meta: MetaFunction = (): ReturnType<MetaFunction> => {
   return [
@@ -38,55 +39,8 @@ export const meta: MetaFunction = (): ReturnType<MetaFunction> => {
 
 export default function Index(): JSX.Element {
   return (
-    <div className="font-sans p-4">
-      <h1 className="text-3xl">Andrew Morrison&apos;s Portfolio</h1>
-      <p className="mt-4">
-        Welcome to my personal website! I&apos;m a software engineer, freelance
-        web developer, and musician. Explore my projects, interactive code
-        examples, music career, chess matches, and a media gallery.
-      </p>
-      <ul className="list-disc mt-4 pl-6 space-y-2">
-        <li>
-          <a
-            className="text-blue-700 underline visited:text-purple-900"
-            target="_blank"
-            href="/projects"
-            rel="noreferrer"
-          >
-            Explore My Projects
-          </a>
-        </li>
-        <li>
-          <a
-            className="text-blue-700 underline visited:text-purple-900"
-            target="_blank"
-            href="/music"
-            rel="noreferrer"
-          >
-            My Music Career
-          </a>
-        </li>
-        <li>
-          <a
-            className="text-blue-700 underline visited:text-purple-900"
-            target="_blank"
-            href="/chess"
-            rel="noreferrer"
-          >
-            Chess Matches
-          </a>
-        </li>
-        <li>
-          <a
-            className="text-blue-700 underline visited:text-purple-900"
-            target="_blank"
-            href="/gallery"
-            rel="noreferrer"
-          >
-            Media Gallery
-          </a>
-        </li>
-      </ul>
+    <div className="bg-red-500 text-white text-xl p-4">
+      Tailwind Test: This should be a red background with large white text.
     </div>
   );
 }
