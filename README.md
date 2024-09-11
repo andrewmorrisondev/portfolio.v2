@@ -23,8 +23,6 @@ This command installs dependencies and starts the development environment using 
 
 ## Deployment
 
-## Deployment
-
 This project is hosted on Vercel, and deployment is integrated with GitHub Actions. For production deployment:
 
 1. Make a pull request (PR) to the `main` branch on GitHub.
