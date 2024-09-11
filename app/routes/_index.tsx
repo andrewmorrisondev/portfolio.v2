@@ -2,44 +2,66 @@ import type { MetaFunction } from "@remix-run/node";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
+    { title: "Andrew Morrison | Software Engineer" },
+    { name: "description", content: "Explore Andrew Morrison's portfolio featuring web development, software engineering, music career, chess matches, code examples, and a media gallery." },
+    { name: "keywords", content: "Andrew Morrison, Software Engineer, Web Developer, Music, Chess, Code, Gallery, Freelance, Developer Portfolio" },
+    { property: "og:title", content: "Andrew Morrison | Software Engineer & Web Developer" },
+    { property: "og:description", content: "Discover my projects, music, and interactive code examples. View my chess matches, and browse the media gallery." },
+    // { property: "og:image", content: "/path-to-your-image.jpg" }, // Replace with your actual image path
+    { property: "og:url", content: "https://andrewmorrison.dev" },
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: "Andrew Morrison | Software Engineer & Web Developer" },
+    { name: "twitter:description", content: "Check out my projects, music, and more on my portfolio website." },
+    // { name: "twitter:image", content: "/path-to-your-image.jpg" }, // Replace with your actual image path
   ];
 };
 
 export default function Index() {
   return (
     <div className="font-sans p-4">
-      <h1 className="text-3xl">Welcome to Remix</h1>
+      <h1 className="text-3xl">Andrew Morrison's Portfolio</h1>
+      <p className="mt-4">
+        Welcome to my personal website! I'm a software engineer, freelance web developer, and musician. Explore my projects, interactive code examples, music career, chess matches, and a media gallery.
+      </p>
       <ul className="list-disc mt-4 pl-6 space-y-2">
         <li>
           <a
             className="text-blue-700 underline visited:text-purple-900"
             target="_blank"
-            href="https://remix.run/start/quickstart"
+            href="/projects"
             rel="noreferrer"
           >
-            5m Quick Start
+            Explore My Projects
           </a>
         </li>
         <li>
           <a
             className="text-blue-700 underline visited:text-purple-900"
             target="_blank"
-            href="https://remix.run/start/tutorial"
+            href="/music"
             rel="noreferrer"
           >
-            30m Tutorial
+            My Music Career
           </a>
         </li>
         <li>
           <a
             className="text-blue-700 underline visited:text-purple-900"
             target="_blank"
-            href="https://remix.run/docs"
+            href="/chess"
             rel="noreferrer"
           >
-            Remix Docs
+            Chess Matches
+          </a>
+        </li>
+        <li>
+          <a
+            className="text-blue-700 underline visited:text-purple-900"
+            target="_blank"
+            href="/gallery"
+            rel="noreferrer"
+          >
+            Media Gallery
           </a>
         </li>
       </ul>
