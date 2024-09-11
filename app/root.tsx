@@ -7,6 +7,8 @@ import {
 } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node"; // Corrected import
 import tailwindStyles from "./tailwind.css"; // Import Tailwind CSS
+import { SpeedInsights } from "@vercel/speed-insights/remix";
+import { Analytics } from "@vercel/analytics/react";
 
 // Define the links function to include the Tailwind CSS
 export const links: LinksFunction = () => {
@@ -25,6 +27,8 @@ export function Layout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
+        <SpeedInsights />
+        <Analytics />
       </head>
       <body>
         {children}
