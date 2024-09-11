@@ -12,9 +12,9 @@ install:
 test:
 	@$(NPM) run test
 
-# Run linting (ESLint)
+# Run linting and automatically fix issues
 lint:
-	@$(NPM) run lint
+	@$(NPM) run lint -- --fix
 
 # Build the project for production
 build:
@@ -36,6 +36,10 @@ clean:
 
 # Full rebuild (clean, install, build)
 rebuild: clean install build tailwind-build
+
+# Ensure lint passes before pushing
+prepush: lint
+	@echo "Linting passed, ready to push."
 
 # Deploy to Vercel
 deploy:

@@ -22,20 +22,20 @@ export default function handleRequest(
   // This is ignored so we can keep it in the template for visibility.  Feel
   // free to delete this parameter in your app if you're not using it!
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  loadContext: AppLoadContext
-) {
+  loadContext: AppLoadContext,
+): Promise<Response> {
   return isbot(request.headers.get("user-agent") || "")
     ? handleBotRequest(
         request,
         responseStatusCode,
         responseHeaders,
-        remixContext
+        remixContext,
       )
     : handleBrowserRequest(
         request,
         responseStatusCode,
         responseHeaders,
-        remixContext
+        remixContext,
       );
 }
 
@@ -43,8 +43,10 @@ function handleBotRequest(
   request: Request,
   responseStatusCode: number,
   responseHeaders: Headers,
-  remixContext: EntryContext
-) {
+  remixContext: EntryContext,
+): Promise<Response> {
+  let statusCode = responseStatusCode; // Create a local variable to hold the status code
+
   return new Promise((resolve, reject) => {
     let shellRendered = false;
     const { pipe, abort } = renderToPipeableStream(
@@ -64,8 +66,8 @@ function handleBotRequest(
           resolve(
             new Response(stream, {
               headers: responseHeaders,
-              status: responseStatusCode,
-            })
+              status: statusCode, // Use the local variable
+            }),
           );
 
           pipe(body);
@@ -74,15 +76,12 @@ function handleBotRequest(
           reject(error);
         },
         onError(error: unknown) {
-          responseStatusCode = 500;
-          // Log streaming rendering errors from inside the shell.  Don't log
-          // errors encountered during initial shell rendering since they'll
-          // reject and get logged in handleDocumentRequest.
+          statusCode = 500; // Modify the local variable instead of the parameter
           if (shellRendered) {
             console.error(error);
           }
         },
-      }
+      },
     );
 
     setTimeout(abort, ABORT_DELAY);
@@ -93,8 +92,10 @@ function handleBrowserRequest(
   request: Request,
   responseStatusCode: number,
   responseHeaders: Headers,
-  remixContext: EntryContext
-) {
+  remixContext: EntryContext,
+): Promise<Response> {
+  let statusCode = responseStatusCode; // Create a local variable for status code
+
   return new Promise((resolve, reject) => {
     let shellRendered = false;
     const { pipe, abort } = renderToPipeableStream(
@@ -114,8 +115,8 @@ function handleBrowserRequest(
           resolve(
             new Response(stream, {
               headers: responseHeaders,
-              status: responseStatusCode,
-            })
+              status: statusCode, // Use the local variable
+            }),
           );
 
           pipe(body);
@@ -124,15 +125,13 @@ function handleBrowserRequest(
           reject(error);
         },
         onError(error: unknown) {
-          responseStatusCode = 500;
-          // Log streaming rendering errors from inside the shell.  Don't log
-          // errors encountered during initial shell rendering since they'll
-          // reject and get logged in handleDocumentRequest.
+          statusCode = 500; // Update the local variable, not the parameter
+          // Log streaming rendering errors from inside the shell.
           if (shellRendered) {
             console.error(error);
           }
         },
-      }
+      },
     );
 
     setTimeout(abort, ABORT_DELAY);
