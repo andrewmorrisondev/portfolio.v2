@@ -9,12 +9,19 @@ dev:
 	@$(NPM) install
 	@$(NPM) run dev
 
-# Build: Install dependencies, run linting, build Remix, and Tailwind for production
-build:
+# Build: Clean build artifacts, install dependencies, run linting, build Remix, and Tailwind for production
+build: clean
 	@$(NPM) install
 	@$(NPM) run lint -- --fix
 	@$(REMIX) build
-	@$(TAILWIND) -i ./app/styles/input.css -o ./public/build/tailwind.css --minify
+	@$(TAILWIND) -i ./app/tailwind.css -o ./public/build/tailwind.css --minify
+
+# Clean build artifacts
+clean:
+	@rm -rf .vercel/output
+	@rm -rf build
+	@rm -rf public/build
+	@echo "Cleaned up build artifacts."
 
 # Deploy: Run linting, build everything, and deploy to Vercel
 deploy:

@@ -23,14 +23,19 @@ This command installs dependencies and starts the development environment using 
 
 ## Deployment
 
-This project is hosted on Vercel. For production deployment:
+## Deployment
 
-1. Build and deploy your app for production:
-   ```bash
-   make deploy
-   ```
+This project is hosted on Vercel, and deployment is integrated with GitHub Actions. For production deployment:
 
-This command ensures that linting passes, builds the project, and deploys it to Vercel using the Vercel CLI.
+1. Make a pull request (PR) to the `main` branch on GitHub.
+   
+   - The PR will trigger GitHub Actions to run automated checks, including linting, testing, and building the project.
+   - Ensure that the pull request passes all checks in GitHub Actions before merging.
+
+2. Once the pull request is approved and merged into the protected `main` branch, Vercel will automatically redeploy the latest changes.
+
+   - Vercel is configured to monitor the `main` branch, and any successful build will trigger an automatic redeployment.
+
 
 ## Build Commands
 
@@ -44,11 +49,6 @@ Here are the key commands to manage this project:
 - **Build the project** (install dependencies, run linting, and build):
   ```bash
   make build
-  ```
-
-- **Deploy to Vercel**:
-  ```bash
-  make deploy
   ```
 
 - **Clean build artifacts**:
