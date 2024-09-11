@@ -4,7 +4,7 @@ const config: AppConfig = {
   appDirectory: "app",
   assetsBuildDirectory: "public/build",
   publicPath: "/build/",
-  serverBuildPath: "build/index.js", // Adjusted from serverBuildDirectory
+  serverBuildPath: "vercel", // Updated for Vercel
   ignoredRouteFiles: ["**/.*"],
 };
 
