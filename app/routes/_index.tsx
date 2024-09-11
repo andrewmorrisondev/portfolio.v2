@@ -1,5 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
-// import UnderConstruction from "components/UnderConstruction/UnderConstruction";
+import UnderConstruction from "components/UnderConstruction/UnderConstruction";
 
 export const meta: MetaFunction = (): ReturnType<MetaFunction> => {
   return [
@@ -38,9 +38,5 @@ export const meta: MetaFunction = (): ReturnType<MetaFunction> => {
 };
 
 export default function Index(): JSX.Element {
-  return (
-    <div className="bg-red-500 text-white text-xl p-4">
-      Tailwind Test: This should be a red background with large white text.
-    </div>
-  );
+  return <UnderConstruction />;
 }
